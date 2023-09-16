@@ -21,18 +21,30 @@ namespace Primeiro_Site.Controllers
         {
             return View();
         }
-        public IActionResult Editar()
+
+        [HttpPost]
+        public IActionResult Criar(ContatoModel contato)
         {
-            return View();
+            _contatoRepositorio.Adicionar(contato);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Editar(int Id)
+        {
+            ContatoModel contato = _contatoRepositorio.ListarPorId(Id);
+            return View(contato);
         }
         public IActionResult Confirmacao()
         {
             return View();
         }
+      
+
         [HttpPost]
-        public IActionResult Criar(ContatoModel contato)            
+        public IActionResult Alterar(ContatoModel contato)
         {
-            _contatoRepositorio.Adicionar(contato);
+            _contatoRepositorio.Atualizar(contato);
 
             return RedirectToAction("Index");
         }
