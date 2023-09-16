@@ -24,18 +24,18 @@
                 foreach (ContatoModel contato in Model)
                 {
                     <tr>
-                        <th scope="row">3</th>
+                        <th scope="row">@contato.Id</th>
                         <td colspan="1">@contato.Nome</td>
                         <td>@contato.Email</td>
                         <td>@contato.Telefone</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
 
-                                <a role="button" class="btn btn-primary" asp-route-id="Contato" 
-                                asp-controller="Contato" asp asp-action="Index">Editar</a>
+                                <a role="button" class="btn btn-primary" asp-route-id="@contato.Id" 
+                                asp-controller="Contato" asp asp-action="Editar">Editar</a>
 
-                                <a role="button" class="btn btn-danger" asp-route-id="Contato"
-                                asp-controller="Contato" asp asp-action="Index">Apagar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@contato.Id"
+                                asp-controller="Contato" asp asp-action="Confirmacao">Apagar</a>
                             </div>
                         </td>
                     </tr>
